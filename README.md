@@ -1,5 +1,4 @@
 
-```markdown
 # developerNews Application
 
 developerNews is a full-stack application built with Node.js, MySQL, ReactJS, and TypeScript. It manages and interacts with users, posts, comments, and likes.
@@ -105,4 +104,4 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-![Screenshot](/../main/docs/ui%20designs/1%20home%20page.png)
+![Screenshot]("./docs/ui designs/1 home page.png")
