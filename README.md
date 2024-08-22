@@ -1,5 +1,5 @@
 
-# developerNews Application
+# developerNews(Codersquare) Application
 
 developerNews is a full-stack application built with Node.js, MySQL, ReactJS, and TypeScript. It manages and interacts with users, posts, comments, and likes.
 
