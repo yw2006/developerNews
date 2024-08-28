@@ -8,6 +8,6 @@ export interface Datastore extends UserDao, PostDao, LikeDao, CommentDao {}
 
 export let db: Datastore;
 
-export async function initDb(dbPath: string) {
-  db = await new SqlDataStore().openDb(dbPath);
+export async function initDb() {
+  db = await new SqlDataStore().openDb();
 }

@@ -5,16 +5,18 @@
   "main": "src/index.js",
   "scripts": {
     "build": "npm i && tsc",
-    "start": "touch /tmp/codersquare.sqlite && nodemon src/index.ts",
-    "start:prod": "pm2 delete codersquare; pm2 start --name codersquare \"npx ts-node --transpile-only src/index.ts\"",
+    "start": "touch /tmp/developerNews.sqlite && nodemon src/index.ts",
+    "start:prod": "pm2 delete developerNews; pm2 start --name developerNews \"npx ts-node --transpile-only src/index.ts\"",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@codersquare/shared": "file:../shared",
+    "@developerNews/shared": "file:../shared",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "express-async-handler": "^1.2.0",

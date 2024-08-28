@@ -6,7 +6,7 @@ import {
   UpdateCurrentUserRequest,
   UpdateCurrentUserResponse,
   withParams,
-} from '@codersquare/shared';
+} from '@developerNews/shared';
 import { useQuery } from '@tanstack/react-query';
 import { FormEvent, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import { ENDPOINT_CONFIGS, Endpoints } from '@codersquare/shared';
+import { ENDPOINT_CONFIGS, Endpoints } from '.././../shared';
 import cors from 'cors';
 import express, { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
@@ -14,12 +14,12 @@ import { errHandler } from './middleware/errorMiddleware';
 import { loggerMiddleware } from './middleware/loggerMiddleware';
 
 export async function createServer(logRequests = true) {
-  const dbPath = process.env.DB_PATH;
-  if (!dbPath) {
+  const DB_PORT = process.env.DB_PORT;
+  if (!DB_PORT) {
     LOGGER.error('DB_PATH env var missing');
     process.exit(1);
   }
-  await initDb(dbPath);
+  await initDb();
 
   // create express app
   const app = express();

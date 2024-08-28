@@ -21,9 +21,10 @@ export const SignIn = () => {
       e.preventDefault();
       try {
         await signIn(un, pw);
-        refreshCurrentUser();
+        refreshCurrentUser()
         navigate(ROUTES.HOME);
-      } catch {
+      } catch(err) {
+        console.log(err)
         setError('Bad credentials');
       }
     },

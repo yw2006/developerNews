@@ -1,4 +1,4 @@
-import { ENDPOINT_CONFIGS, ListPostsRequest, ListPostsResponse } from '@codersquare/shared';
+import { ENDPOINT_CONFIGS, ListPostsRequest, ListPostsResponse } from '@developerNews/shared';
 import { useQuery } from '@tanstack/react-query';
 
 import { PostCard } from '../components/post-card';
@@ -16,6 +16,7 @@ export const ListPosts = () => {
   }
 
   if (error) {
+    console.log(error)
     return <div>error loading posts</div>;
   }
 

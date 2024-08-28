@@ -1,5 +1,5 @@
 {
-  "name": "@codersquare/shared",
+  "name": "@developerNews/shared",
   "scripts": {
     "build": "npm i && tsc"
   },

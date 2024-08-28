@@ -8,7 +8,7 @@ import {
   ListPostsRequest,
   ListPostsResponse,
   Post,
-} from '@codersquare/shared';
+} from '../../../shared';
 import crypto from 'crypto';
 
 import { Datastore } from '../datastore';

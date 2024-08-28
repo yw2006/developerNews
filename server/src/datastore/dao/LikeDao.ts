@@ -1,4 +1,4 @@
-import { Like } from '@codersquare/shared';
+import { Like } from '../../../../shared';
 
 export interface LikeDao {
   createLike(like: Like): Promise<void>;

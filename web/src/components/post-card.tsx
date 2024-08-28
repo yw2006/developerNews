@@ -7,7 +7,7 @@ import {
   GetUserResponse,
   Post,
   withParams,
-} from '@codersquare/shared';
+} from '@developerNews/shared';
 import { useQuery } from '@tanstack/react-query';
 import formatDistance from 'date-fns/formatDistance';
 import React, { useCallback } from 'react';
@@ -92,9 +92,9 @@ export const PostCard: React.FC<{ post: Post; refetch: () => unknown; hideDiscus
           <Text>By:</Text>
           <Link to={user ? ROUTES.USER_PROFILE(user.id) : '#'}>
             <Text fontWeight="bold">{userName}</Text>
+            
           </Link>
-
-          <Text> - {formatDistance(post.postedAt, Date.now(), { addSuffix: true })}</Text>
+          <Text> - {formatDistance(new Date(post.postedAt), Date.now(), { addSuffix: true })}</Text>
         </Flex>
       </Box>
     </Flex>

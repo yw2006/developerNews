@@ -1,6 +1,6 @@
-# ERD: codersquare
+# ERD: developerNews
 
-This document explores the design of codersquare, a social experience for
+This document explores the design of developerNews, a social experience for
 sharing useful programming resources.
 
 We'll use a basic client/server architecture, where a single server is deployed

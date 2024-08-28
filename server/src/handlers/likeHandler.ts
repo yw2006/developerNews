@@ -1,4 +1,4 @@
-import { ERRORS, Like, ListLikesResponse } from '@codersquare/shared';
+import { ERRORS, Like, ListLikesResponse } from '../../../shared';
 
 import { Datastore } from '../datastore';
 import { ExpressHandlerWithParams } from '../types';

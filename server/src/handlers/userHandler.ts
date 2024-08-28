@@ -11,8 +11,7 @@ import {
   UpdateCurrentUserRequest,
   UpdateCurrentUserResponse,
   User,
-} from '@codersquare/shared';
-import crypto from 'crypto';
+} from '../../../shared';
 
 import { signJwt } from '../auth';
 import { Datastore } from '../datastore';
@@ -33,7 +32,8 @@ export class UserHandler {
 
     const existing =
       (await this.db.getUserByEmail(login)) || (await this.db.getUserByUsername(login));
-    if (!existing || existing.password !== this.hashPassword(password)) {
+    
+    if (!existing || password!==existing.password) {
       return res.sendStatus(403);
     }
 
@@ -70,7 +70,7 @@ export class UserHandler {
       firstName: firstName ?? '',
       lastName: lastName ?? '',
       userName: userName,
-      password: this.hashPassword(password),
+      password: password,
     };
 
     await this.db.createUser(user);
@@ -145,9 +145,4 @@ export class UserHandler {
     return (userWithProvidedUserName != undefined) && (userWithProvidedUserName.id !== currentUserId);
   }
 
-  private hashPassword(password: string): string {
-    return crypto
-      .pbkdf2Sync(password, process.env.PASSWORD_SALT!, 42, 64, 'sha512')
-      .toString('hex');
-  }
 }

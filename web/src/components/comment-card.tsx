@@ -5,7 +5,7 @@ import {
   GetUserRequest,
   GetUserResponse,
   withParams,
-} from '@codersquare/shared';
+} from '@developerNews/shared';
 import { useQuery } from '@tanstack/react-query';
 import formatDistance from 'date-fns/formatDistance';
 import React from 'react';

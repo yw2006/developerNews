@@ -1,36 +1,31 @@
-import { Comment, Like, Post, User } from '@codersquare/shared';
+import { Comment, Like, Post, User } from '../../../../shared';
 import { createPool, Pool } from 'mysql2/promise';
 
 import { Datastore } from '..';
 import { LOGGER } from '../../logging';
-import { SEED_POSTS, SEED_USERS } from './seeds';
 
 export class SqlDataStore implements Datastore {
   private db!: Pool;
 
-  public async openDb(dbConfig: any) {
-    const { ENV } = process.env;
+  public async openDb() {
 
     // open the database
     try {
       LOGGER.info('Connecting to MySQL database...');
-      this.db = createPool(dbConfig);
+      this.db = createPool({
+        host: process.env.HOST,
+        user: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE,
+        port:Number(process.env.DB_PORT),
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0,
+      });
     } catch (e) {
       LOGGER.error('Failed to connect to the database:', e);
       process.exit(1);
     }
-
-    if (ENV === 'development') {
-      LOGGER.info('Seeding data...');
-
-      for (const u of SEED_USERS) {
-        if (!(await this.getUserById(u.id))) await this.createUser(u);
-      }
-      for (const p of SEED_POSTS) {
-        if (!(await this.getPostByUrl(p.url))) await this.createPost(p);
-      }
-    }
-
     return this;
   }
 
@@ -68,7 +63,7 @@ export class SqlDataStore implements Datastore {
       `SELECT *, EXISTS(
         SELECT 1 FROM likes WHERE likes.postId = posts.id AND likes.userId = ?
       ) as liked FROM posts ORDER BY postedAt DESC`,
-      [userId]
+      [userId || ""]
     );
     return rows as Post[];
   }
@@ -80,12 +75,12 @@ export class SqlDataStore implements Datastore {
     );
   }
 
-  async getPost(id: string, userId: string): Promise<Post | undefined> {
+  async getPost(id: string): Promise<Post | undefined> {
     const [rows] = await this.db.execute(
       `SELECT *, EXISTS(
-        SELECT 1 FROM likes WHERE likes.postId = ? AND likes.userId = ?
+        SELECT 1 FROM likes WHERE likes.postId = ?
       ) as liked FROM posts WHERE id = ?`,
-      [id, userId, id]
+      [id,id]
     );
     return (rows as Post[])[0];
   }

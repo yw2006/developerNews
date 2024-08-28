@@ -1,5 +1,5 @@
 
-# developerNews(Codersquare) Application
+# developerNews Application
 
 developerNews is a full-stack application built with Node.js, MySQL, ReactJS, and TypeScript. It manages and interacts with users, posts, comments, and likes.
 
@@ -42,7 +42,7 @@ To get started with developerNews, follow these steps:
 
 ### Environment Variables
 
-Create a `.env` file in the `server/src` directory with the following content:
+Create a `.env` file in the `server` directory with the following content:
 
 ```dotenv
 ENV=development
@@ -50,6 +50,11 @@ PORT=3000
 DB_URL=mysql://user:password@host:port/database
 PASSWORD_SALT=your salt
 JWT_SECRET=yourJWT
+HOST=127.0.0.1
+USER=root
+PASSWORD=""
+DATABASE=developer_news
+DB_PORT=your port
 ```
 
 Replace the placeholders with your actual database connection details.

@@ -1,4 +1,4 @@
-import { ENDPOINT_CONFIGS } from '@codersquare/shared';
+import { ENDPOINT_CONFIGS } from '../../../shared';
 import supertest from 'supertest';
 
 import { getTestServer } from './testserver';

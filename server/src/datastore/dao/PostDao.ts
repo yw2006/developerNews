@@ -1,4 +1,4 @@
-import { Post } from '@codersquare/shared';
+import { Post } from '../../../../shared';
 
 export interface PostDao {
   listPosts(userId?: string): Promise<Post[]>;

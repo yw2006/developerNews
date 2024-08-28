@@ -1,5 +1,5 @@
 {
-  "name": "codersquare",
+  "name": "developerNews",
   "description": "A social web app for sharing learning resources in a hackernews-style experience.",
   "scripts": {
     "build:server": "cd server && npm i && npm run build",

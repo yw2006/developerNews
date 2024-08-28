@@ -1,4 +1,4 @@
-import { ERRORS } from '@codersquare/shared';
+import { ERRORS } from '../../../shared';
 import { TokenExpiredError, VerifyErrors } from 'jsonwebtoken';
 
 import { verifyJwt } from '../auth';

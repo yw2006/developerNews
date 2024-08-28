@@ -1,4 +1,4 @@
-import { User } from '@codersquare/shared';
+import { User } from '../../../../shared';
 
 export interface UserDao {
   createUser(user: User): Promise<void>;
